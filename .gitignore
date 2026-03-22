@@ -1,0 +1,18 @@
+# Dataset — download separately from https://github.com/jcpeterson/choices13k
+choices13k/
+old/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+venv/
+cog_mod/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
