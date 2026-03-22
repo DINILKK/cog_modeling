@@ -40,6 +40,21 @@ P(choose B) = sigmoid(beta * (V(B) - V(A)))
 pip install pymc arviz matplotlib pandas numpy
 ```
 
+## Dataset
+
+The choices13k dataset is openly available at:
+https://github.com/jcpeterson/choices13k
+
+> **Note:** The dataset is not included in this repository. Clone it separately and place it in a `choices13k/` folder in the project root before running the script:
+> ```bash
+> git clone https://github.com/jcpeterson/choices13k.git
+> ```
+
+**Full citation:**
+Peterson, J. C., Bourgin, D. D., Agrawal, M., Reichman, D., & Griffiths, T. L. (2021).
+Using large-scale experiments and machine learning to discover theories of human decision-making.
+*Science*, 372(6547), 1209–1214. https://doi.org/10.1126/science.abe2629
+
 ## Run
 
 ```bash
@@ -49,15 +64,21 @@ python prospect_theory_model.py
 ## Outputs
 
 - `posterior_distributions.png` — Posterior of all parameters
-- `probability_weighting.png` — Fitted probability weighting function with uncertainty
+- `probability_weighting.png` — Fitted probability weighting function with uncertainty bands
 - `posterior_predictive_check.png` — Predicted vs observed choice rates
 
-## Dataset
+## Key Results
 
-Peterson, J. C., et al. (2021). Using large-scale experiments and machine learning
-to discover theories of human decision-making. *Science*, 372(6547), 1209–1214.
+| Parameter | Posterior Mean | Interpretation |
+|-----------|---------------|----------------|
+| alpha | 0.782 | Risk averse value function (< 1 = concave) |
+| gamma | 0.879 | Inverse-S probability weighting (< 1 = distortion) |
+| delta | 0.881 | Slight underweighting of probabilities overall |
+| beta  | 0.243 | Low decision noise — consistent choices |
+
+All r-hat values = 1.0, indicating perfect chain convergence.
 
 ## References
 
-- Tversky, A., & Kahneman, D. (1992). Advances in prospect theory. *Journal of Risk and Uncertainty*.
-- Prelec, D. (1998). The probability weighting function. *Econometrica*.
+- Tversky, A., & Kahneman, D. (1992). Advances in prospect theory. *Journal of Risk and Uncertainty*, 5(4), 297–323.
+- Prelec, D. (1998). The probability weighting function. *Econometrica*, 66(3), 497–527.
